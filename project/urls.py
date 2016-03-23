@@ -1,0 +1,22 @@
+from django.conf.urls import include, url
+from django.contrib import admin
+
+urlpatterns = [
+    # Examples:
+    # url(r'^$', 'project.views.home', name='home'),
+    # url(r'^blog/', include('blog.urls')),
+
+    url(r'^admin/', include(admin.site.urls)),
+
+    url (r'^state_detail/(?P<name>.+)$', 'main.views.state_detail'),
+
+    url(r'^state_list/$', 'main.views.state_list'),
+    
+
+    url(r'^state_template/$', 'main.views.template_view'),
+
+    url (r'^cbv_list$',views.StateListView.as_view()),
+    url(r'^city_search/$', 'main,views.city_search'),
+
+    url(r'^city_create/$', 'main,views.city_create'),
+]

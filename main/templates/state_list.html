@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+​
+{% block body %}
+​
+	<div class="container" style='border:3px solid green'>
+​
+        {% for state in states %}
+​
+        	<div class='row' style='border:3px solid red'>
+​
+	            <div class='col-xs-6 col-sm-6 col-md-3' style='border:3px solid black'>
+	            {{ state.name }}
+	            </div>
+            
+	            <div class='col-xs-6 col-sm-6 col-md-9' style='border:3px solid black'>
+	            {% for city in state.city_set.all|slice:":10" %}
+​
+	            	{{ city.name }}
+​
+	            {% endfor %}
+	            </div>
+            
+            </div>
+​
+        {% endfor %}
+​
+    </div>
+​
+{% endblock %}
